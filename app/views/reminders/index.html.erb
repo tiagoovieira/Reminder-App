@@ -1,0 +1,37 @@
+<% flash.each do |message_type, message| %>
+   <div class="flash-<%= message_type %>"><%= message %></div>
+<% end %>
+
+<% if @reminders.present? %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Remind At</th>
+      <th scope="col">Recurrent</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @reminders.each do |reminder| %>
+      <tr>
+        <th scope="row"><%= reminder.title %></th>
+        <td><%= truncate(reminder.description, :length => 80) %></td>
+        <td><%= reminder.remind_at.strftime('%b %e, %Y') %></td>
+        <td><%= reminder.recurrent %></td>
+        <td>
+          <%= link_to 'edit', edit_reminder_path(reminder) %> |
+          <%= link_to 'delete', reminder_path(reminder), method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+
+<div class="">
+  <%= link_to 'Create a new reminder', new_reminder_path, class: 'btn btn-primary' %>
+</div>

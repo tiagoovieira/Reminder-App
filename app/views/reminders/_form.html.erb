@@ -1,0 +1,29 @@
+<div class="card"  style="width: 18rem;">
+  <div class="col-2">
+    <div class="card-body">
+      <%= simple_form_for @reminder do |f| %>
+        <div class="form-group">
+          <label>Title *</label>
+          <%= f.input :title, label: false, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <label>Description *</label>
+          <%= f.input :description, label: false %>
+        </div>
+
+        <div class="form-group">
+          <label>Remind At *</label>
+          <%= f.input :remind_at, label: false %>
+        </div>
+
+        <div class="form-group form-check">
+          <label>Recurrent *</label>
+          <%= f.input :recurrent, label: false, class: 'form-check-input' %>
+        </div>
+
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
