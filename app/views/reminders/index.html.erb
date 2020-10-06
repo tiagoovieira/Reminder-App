@@ -1,5 +1,11 @@
-<% flash.each do |message_type, message| %>
-   <div class="flash-<%= message_type %>"><%= message %></div>
+<% flash_alerts_classes.each do |key, klass| %>
+  <% if flash[key].present? %>
+    <div class="alert alert-<%= klass %> alert-dismissible mt-2">
+      <div class="c-alert__text">
+        <%= flash[key].html_safe %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
 
 <% if @reminders.present? %>

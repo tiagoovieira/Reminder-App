@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_09_29_222040) do
     t.string "title"
     t.text "description"
     t.boolean "recurrent"
-    t.datetime "remind_at"
+    t.date "remind_at"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

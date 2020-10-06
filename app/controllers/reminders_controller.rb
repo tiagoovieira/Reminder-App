@@ -27,7 +27,7 @@ class RemindersController < ApplicationController
     @reminder = current_user.reminders.find(params[:id])
 
     @reminder.assign_attributes(reminder_params)
-    
+
     if @reminder.save
       redirect_to reminders_path, notice: 'Reminder updated'
     else

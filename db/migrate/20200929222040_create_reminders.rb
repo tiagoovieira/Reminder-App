@@ -4,7 +4,7 @@ class CreateReminders < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :description
       t.boolean :recurrent
-      t.datetime :remind_at
+      t.date :remind_at
       t.references :user
       t.timestamps
     end
